@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
-// import from ''; // Remove this line if it's not needed
+
 import Link from 'next/link';
 import { generatenation } from '@/app/lib/utils';
 
