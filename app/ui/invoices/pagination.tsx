@@ -63,7 +63,7 @@ function nationNumber({
   position?: 'first' | 'last' | 'middle' | 'single';
   isActive: boolean;
 }) {
-  const className = (
+  const className = [
     'flex h-10 w-10 items-center justify-center text-sm border',
     {
       'rounded-l-md': position === 'first' || position === 'single',
@@ -72,7 +72,7 @@ function nationNumber({
       'hover:bg-gray-100': !isActive && position !== 'middle',
       'text-gray-300': position === 'middle',
     },
-  );
+  ].join(' ');
 
   return isActive || position === 'middle' ? (
     <div className={className}>{page}</div>
@@ -92,7 +92,7 @@ function nationArrow({
   direction: 'left' | 'right';
   isDisabled?: boolean;
 }) {
-  const className = (
+  const className = [
     'flex h-10 w-10 items-center justify-center rounded-md border',
     {
       'pointer-events-none text-gray-300': isDisabled,
@@ -100,14 +100,13 @@ function nationArrow({
       'mr-2 md:mr-4': direction === 'left',
       'ml-2 md:ml-4': direction === 'right',
     },
-  );
+  ].join(' ');
 
-  const icon =
-    direction === 'left' ? (
-      <ArrowLeftIcon className="w-4" />
-    ) : (
-      <ArrowRightIcon className="w-4" />
-    );
+  const icon = direction === 'left' ? (
+    <ArrowLeftIcon className="w-4" />
+  ) : (
+    <ArrowRightIcon className="w-4" />
+  );
 
   return isDisabled ? (
     <div className={className}>{icon}</div>
@@ -117,3 +116,4 @@ function nationArrow({
     </Link>
   );
 }
+
